@@ -49,33 +49,36 @@
                 <label for="address">Address</label>
                 <textarea class="form-control" id="address" ng-model="address" rows="1" required></textarea>
             </div>
-            <fieldset class="form-group">
+            <div class="results">
                 <legend>Results</legend>
-                <div class="form-check">
+                <div class="Mathematics">
+                    Mathematics:
                     <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" ng-model="maths" id="optionsRadios3" value="Mathematics" checked="" >
-                                A
-                            </label>
-                    <label class="form-check-label">           
-                                <input type="radio" class="form-check-input" name="optionsRadios" ng-model="maths" id="optionsRadios4" value="Mathematics" checked="" >
-                                B
-                            </label>
+                    <input type="radio" class="form-check-input" name="optionsRadios1" ng-model="maths" value="A" checked=""> A</label>
                     <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" ng-model="maths" id="optionsRadios5" value="Mathematics" checked="" >
-                                C
-                            </label>
+                    <input type="radio" class="form-check-input" name="optionsRadios1" ng-model="maths" value="B" checked=""> B</label>
+                    <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios1" ng-model="maths" value="C" checked=""> C</label>
                 </div>
-                <div class="form-check">
+                <div class="Science">
+                    Science:
                     <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" ng-model="science" id="optionsRadios6" value="Science" checked="" >
-                                    A
-                                    <input type="radio" class="form-check-input" name="optionsRadios" ng-model="science" id="optionsRadios7" value="Science" checked="" >
-                                    B
-                                    <input type="radio" class="form-check-input" name="optionsRadios" ng-model="science" id="optionsRadios8" value="Science" checked="" >
-                                    C
-                        </label>
+                    <input type="radio" class="form-check-input" name="optionsRadios2" ng-model="science" value="A" checked=""> A</label>
+                    <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios2" ng-model="science" value="B" checked=""> B</label>
+                    <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios2" ng-model="science" value="C" checked=""> C</label>
                 </div>
-            </fieldset>
+                <div class="English">
+                    English:
+                    <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios3" ng-model="English" value="A" checked=""> A</label>
+                    <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios3" ng-model="English" value="B" checked=""> B</label>
+                    <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios3" ng-model="English" value="C" checked=""> C</label>
+                </div>
+            </div>
             <fieldset class="form-group">
                 <legend>Gender</legend>
                 <div class="form-check">

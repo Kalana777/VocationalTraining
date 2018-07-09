@@ -259,7 +259,11 @@ app.controller('regCtrl', function($scope, $http) {
                 'mobile': $scope.mobilenum,
                 'birthday': $scope.date_of_birth,
                 'address': $scope.address,
-                'gender': $scope.gender
+                'gender': $scope.gender,
+                'maths': $scope.maths,
+                'science': $scope.science,
+                'english': $scope.English,
+
             }
         )
         alert("Successfully Inserted!")
