@@ -127,18 +127,18 @@ if (isset($_POST['login'])) {
 
                                 <div class="form-group" style="width: 100%">
                                 <label for="username" class="white" ><font  size=
-                                  "4" color='white'> Username</font></label>
+                                  "4">Username</font></label>
                                  <input type='text' name='username' class='form-control title' value='' > </div>  
 
                                  <div class="form-group" style="width: 100%">
                                 <label for="password" class="white" ><font  size=
-                                  "4" color='white'>Password</font></label>
+                                  "4">Password</font></label>
                                  <input type='password' name='password' class='form-control title' value='' > </div>  
 
                                
 
                               <div class="form-group">
-                              <input type="submit" name="login" value="  Login  "  class="button1" >
+                              <input type="submit" name="login" value="  Login  "  class="button1">
                               </div>
 
                              

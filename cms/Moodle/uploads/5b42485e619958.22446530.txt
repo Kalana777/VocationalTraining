@@ -1,0 +1,137 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package workshopdemo;
+abstract class State{
+    public abstract void change(Workshop w);
+}
+class Workshop{
+    private State current;
+    public int wl;
+    public int num;
+    public int limit;
+    public Workshop(){
+        current=new New();
+        System.out.println("Workshop is proposed");
+        wl=0; num=0; limit=5;
+    }
+    public void setState(State s){
+        this.current=s;
+    }
+    public void schedule(){current.change(this);}
+    public void open(){current.change(this);}
+    public void close(){current.change(this);}
+    public void entrol(){
+        if (current instanceof NotFilled){
+            NotFilled c=(NotFilled) current;
+            c.entrol(this);
+        }
+        else{
+            Full c=(Full) current;
+            c.entrol(this);
+        }
+    }
+    public void drop(){
+        if (current instanceof NotFilled){
+            NotFilled c=(NotFilled) current;
+            c.drop(this);
+        }
+        else{
+            Full c=(Full) current;
+            c.drop(this);
+        }
+    }
+}
+class New extends State{
+    public void change(Workshop w) {
+        w.setState(new Scheduled());
+        System.out.println("Workshop is scheduled");
+    }  
+}
+class Scheduled extends State{
+    public void change(Workshop w) {
+        w.setState(new NotFilled());
+        System.out.println("Workshop is opened for entrolment");
+    }  
+}
+class NotFilled extends State{
+    public void change(Workshop w) {
+        w.setState(new Closed());
+        System.out.println("Workshop is closed");
+    } 
+    public void entrol(Workshop w){
+        if (w.num<w.limit){
+           w.num=w.num+1;
+           System.out.println("One student is entrolled-------"+w.num);
+        }
+        else{
+            w.wl=w.wl+1;
+            w.setState(new Full());
+            System.out.println("Limit exceeded. Added to waiting list   wl= "+w.wl);
+        }
+    }
+    public void drop(Workshop w){
+        w.num=w.num-1;
+        System.out.println("One student dropped-----------num= "+w.num);
+        
+    }
+}
+class Full extends State{
+    public void change(Workshop w) {
+        w.setState(new Closed());
+        System.out.println("Workshop is closed");
+    } 
+    public void entrol(Workshop w){
+        w.wl=w.wl+1;
+        System.out.println("Limit is full. Added to the waiting list--------wl= "+w.wl);
+    }
+    public void drop(Workshop w){
+        if (w.wl>0){
+            w.wl=w.wl-1;
+            System.out.println("One student drop......still limit is full------wl= "+w.wl);
+        }
+        else{
+            w.num=w.num-1;
+            w.setState(new NotFilled());
+            System.out.println("Limit is not full. One student dropped----------num= "+w.num);
+        }
+    }
+}
+class Closed extends State{
+    public void change(Workshop w) {
+        
+    }  
+}
+public class Workshopdemo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Workshop w=new Workshop();
+        w.schedule();
+        w.open();
+        w.entrol();
+        w.entrol();
+        w.entrol();
+        w.drop();
+        w.entrol();
+        w.entrol();
+        w.entrol();
+        w.entrol();
+        w.entrol();
+        w.entrol();
+        w.drop();
+        w.drop();
+        w.drop();
+        w.drop();
+        w.drop();
+        w.close();
+
+        
+
+    }
+    
+}
