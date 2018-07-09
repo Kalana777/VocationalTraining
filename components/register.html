@@ -4,23 +4,23 @@
     </div>
     <!--<div class="container" style="width:500px;">-->
 
-        <!--Student id: <input type="text" ng-model="id" name="id">-->
-        <!--student name: <input type="text" ng-model="name" name="name">-->
-        <!--<input type="button" value="submit" ng-click="insertdata()">-->
-        <!--{{msg}}-->
+    <!--Student id: <input type="text" ng-model="id" name="id">-->
+    <!--student name: <input type="text" ng-model="name" name="name">-->
+    <!--<input type="button" value="submit" ng-click="insertdata()">-->
+    <!--{{msg}}-->
 
     <!--</div>-->
-    <form>
+    <form name="frm">
         <fieldset>
             <legend>Registration </legend>
             <div class="form-group">
                 <label for="fname">Full Name</label>
-                <input type="text" name="first_name" ng-model="fullname" class="form-control" id="fname" placeholder="Enter Fullname">
+                <input type="text" name="first_name" ng-model="fullname" class="form-control" id="fname" placeholder="Enter Fullname" required>
                 <!--<input type="text" class="form-control" ng-model="firstname" name="f_name" id="fname" placeholder="Enter Fullname">-->
             </div>
             <div class="form-group">
                 <label for="name">Name (with initials)</label>
-                <input type="text" name="last_name" ng-model="name" class="form-control" id="name" placeholder="Enter Name">
+                <input type="text" name="last_name" ng-model="name" class="form-control" id="name" placeholder="Enter Name" required>
                 <!--<input type="text" class="form-control" ng-model="lastname" name="l_name" id="lname" placeholder="Enter Name">-->
             </div>
             <div class="form-group">
@@ -28,50 +28,58 @@
                 <input type="email" class="form-control" ng-model="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-            <div class="form-group">
+            <div class="form-group" name="registration">
                 <label for="mobile">Mobile Number</label>
-                <input type="text" class="form-control" ng-model="mobilenum" id="mobile" placeholder="Enter Mobile Number">
+                <input type="number" name="phone" class="form-control" ng-model="mobilenum" id="mobile" placeholder="Enter Mobile Number" required="required" ng-minlength="10" ng-maxlength="10">
+                <div class="errors" ng-if="frm.phone.$touched" ng-messages="frm.phone.$error">
+                    <div ng-message="required">
+                        Phone number is required
+                    </div>
+                    <div ng-message="minlength && maxlength">
+                        Invalid Phone number
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="birthday">Date of Birth</label>
-                <input type="date" class="form-control" id="birthday" ng-model="date_of_birth" placeholder="Date of Birth">
+                <input type="date" class="form-control" id="birthday" ng-model="date_of_birth" placeholder="Date of Birth" required max="2000-07-10" min="<?php echo date( format: 'Y-m-d');?>">
             </div>
 
             <div class="form-group">
                 <label for="address">Address</label>
-                <textarea class="form-control" id="address" ng-model="address" rows="1"></textarea>
+                <textarea class="form-control" id="address" ng-model="address" rows="1" required></textarea>
             </div>
 
             <fieldset class="form-group">
                 <legend>Gender</legend>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios" ng-model="gender" id="optionsRadios1" value="Male" checked="">
-                        Male
-                    </label>
+                            <input type="radio" class="form-check-input" name="optionsRadios" ng-model="gender" id="optionsRadios1" value="Male" checked="" >
+                            Male
+                        </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios" ng-model="gender" id="optionsRadios2" value="Female">
-                        Female
-                    </label>
+                            <input type="radio" class="form-check-input" name="optionsRadios" ng-model="gender" id="optionsRadios2" value="Female">
+                            Female
+                        </label>
                 </div>
             </fieldset>
             <fieldset class="form-group">
                 <legend></legend>
-                <div class="form-check" >
+                <div class="form-check">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" ng-model="config" ng-init="config = false" >
-                        I hereby certify that the above information given are true and correct as to the best of my knowledge.
-                    </label>
+                            <input class="form-check-input" type="checkbox" ng-model="config" ng-init="config = false" >
+                            I hereby certify that the above information given are true and correct as to the best of my knowledge.
+                        </label>
                 </div>
 
             </fieldset>
-            <div class="btn" ng-if="config">
-                <button type="submit" class="btn btn-primary"  name="btnInsert" ng-click="insertData()" >Submit</button>
+            <div class="btn" ng-if="config ">
+                <button type="submit" class="btn btn-primary" name="btnInsert" ng-click="insertData()">Submit</button>
 
             </div>
-            
+
 
         </fieldset>
     </form>
@@ -82,8 +90,7 @@
             </div>
             <div id="condetails">
                 <h3>E-TOKK TECHNICAL</h3>
-                <h4>582, Galle Road, Mount Lavinia,
-                    Sri Lanka.</h4>
+                <h4>582, Galle Road, Mount Lavinia, Sri Lanka.</h4>
                 <h4>+94712251841</h4>
                 <h4>etokk@sltnet.lk</h4>
             </div>
