@@ -1,9 +1,9 @@
-<?php
+<?php 
 define("HOSTNAME","localhost");
 define("USERNAME","root");
 define("PASSWORD","");
-define("DATABASE","test");
+define("DATABASE","vocational training institute");
 
-$dbhandle = new mysqli(HOSTNAME,USERNAME,PASSWORD,DATABASE) or die("Unable to Connect DB");
-echo "asdsdsf";
+$dbhandle=new mysqli(HOSTNAME,USERNAME,PASSWORD,DATABASE) or die("Unable to Connect DB");
+
 ?>
