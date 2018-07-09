@@ -192,7 +192,7 @@ app.controller('loginCtrl', function($scope, $http, $location, user) {
 app.controller('dashboardCtrl', function($scope, $location, user, $http) {
     $scope.user = user.getName();
     $scope.obj = { 'idisable': false };
-    $scope.btnName = "Insert";
+    $scope.btnName = "Update";
 
     $scope.insertdata = function() {
         $http.post("insertapprove.php", { 'userid': $scope.userid, 'approval': $scope.approval, 'btnName': $scope.btnName })
@@ -202,6 +202,20 @@ app.controller('dashboardCtrl', function($scope, $location, user, $http) {
 
             })
 
+    };
+    $scope.insertData = function() {
+        $http.post(
+            "leave.php", {
+                'uname': $scope.Id,
+                'type': $scope.leavetype,
+                'num_day': $scope.numofdays,
+                'from_date': $scope.from,
+                'to_date': $scope.to,
+                'comment': $scope.reason
+
+            }
+        )
+        alert("Successfully Submitted!!")
     };
     $scope.gotoLogout = function() {
         $location.path('/logout');
