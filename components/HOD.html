@@ -94,6 +94,29 @@
                 </div>
                 <div ng-show="isSet(4)">
                     <div ng-init="getdata()">
+                        <label>User Id</label>
+                        <input type="text" name="User_ID" ng-model="userid" class="form-control" ng-disabled="obj.idisable" />
+                        <br />
+
+                        <!-- <input type="text" name="User_ID" ng-model="approval" class="form-control" /> -->
+                        <fieldset class="form-group">
+                            <legend>Approve/Disapprove</legend>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optionsRadios" ng-model="approval" id="optionsRadios1" value="Approved" checked="">
+                                        Approve
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optionsRadios" ng-model="approval" id="optionsRadios2" value="Disapproved">
+                                        Disapprove
+                                    </label>
+                            </div>
+                        </fieldset>
+                        <br />
+                        <input type="submit" name="btnInsert" class="btn btn-info" ng-click="insertdata()" value="{{btnName}}" />
+                        <br /><br />
                         <table class="table table-bordered">
                             <tr>
                                 <th>User ID</th>
@@ -111,8 +134,10 @@
                                 <td>{{x.from_date}}</td>
                                 <td>{{x.to_date}}</td>
                                 <td>{{x.comment}}</td>
-                                <td><button type="submit" class="btn btn-primary" name="btnInsert" ng-click="" style="margin:5px;">Approve  </button>
-                                    <button type="submit" class="btn btn-primary" name="btnInsert" ng-click="">Disapprove</button></td>
+                                <td>{{x.approval}}</td>
+                                <td>
+                                    <button ng-click="edit(x.uname, x.approval)">Check</button>
+                                </td>
                             </tr>
                         </table>
                     </div>
