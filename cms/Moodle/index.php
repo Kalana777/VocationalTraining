@@ -24,7 +24,7 @@
 
                         <?php 
                         $role=$_SESSION['role'];
-                        echo "You are a $role";
+                        echo "You are logged in as $role";
                         ?>
                        
                     </div>

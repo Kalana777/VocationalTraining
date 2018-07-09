@@ -26,7 +26,7 @@ if (isset($_POST['login'])) {
 
 
     
-    $query="SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $query="SELECT * FROM user_tbl WHERE Username='$username' AND Password='$password'";
 
    /* if($role=='Student'){
      
@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
       else{
         $message="logged in!";
         while($row=mysqli_fetch_assoc($validate)) {
-          $role=$row['type'];
+          $role=$row['Type'];
           
        }
 
