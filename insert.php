@@ -10,7 +10,8 @@ if(count($data) > 0)
     $birthday = mysqli_real_escape_string($connect, $data->birthday);
     $address = mysqli_real_escape_string($connect, $data->address);
     $gender = mysqli_real_escape_string($connect, $data->gender);
-    $query = "INSERT INTO registration(full_name, name, email, mobile, birthday, address, gender) VALUES ('$full_name', '$name' ,'$email', '$mobile_num', '$birthday', '$address', '$gender')";
+    $approval="unapproved";
+    $query = "INSERT INTO registration(full_name, name, email, mobile, birthday, address, gender, approval) VALUES ('$full_name', '$name' ,'$email', '$mobile_num', '$birthday', '$address', '$gender', '$approval')";
 
     if(mysqli_query($connect, $query))
     {

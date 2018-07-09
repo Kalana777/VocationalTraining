@@ -23,10 +23,10 @@ if (isset($_POST['login'])) {
 
     $username=mysqli_real_escape_string($connection_d, $username);
     $password=mysqli_real_escape_string($connection_d, $password);
-
+    $psw=md5($password);
 
     
-    $query="SELECT * FROM user_tbl WHERE Username='$username' AND Password='$password'";
+    $query="SELECT * FROM users WHERE username='$username' AND password='$psw'";
 
    /* if($role=='Student'){
      
@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
       else{
         $message="logged in!";
         while($row=mysqli_fetch_assoc($validate)) {
-          $role=$row['Type'];
+          $role=$row['type'];
           
        }
 

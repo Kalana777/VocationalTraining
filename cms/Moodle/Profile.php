@@ -19,13 +19,15 @@
                            <!--header-->
                         </h1>
 
-
-
-<!-- ---------------------------content here ----------------------------------->
-
-
-
-
+<h1><b>Click below to change your password</b></h1><br><hr>
+<form method="POST">
+<button type="submit" name="change" class="btn btn-primary btn-lg">Change Password</button><br><br>
+</form>
+<?php 
+if(isset($_POST['change'])){
+    header("Location:changepassword.php");
+}
+?>
                         
                     </div>
 
