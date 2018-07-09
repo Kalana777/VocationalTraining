@@ -14,7 +14,7 @@ if(count($data) > 0)
 
     if(mysqli_query($connect, $query))
     {
-        echo "DATA INSERTED...";
+        echo "<script>alert('Data inserted');</script>";
     }
     else
     {

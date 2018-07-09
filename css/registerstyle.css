@@ -1,32 +1,41 @@
-.regform form{
+.regform form {
     margin: 0px auto auto auto;
     width: 50%;
     color: white;
     padding-bottom: 50px;
 }
-.regform legend{
+
+.regform legend {
     color: white;
     font-weight: bolder;
 }
-.regform .form-group input{
+
+.regform .form-group input {
     background: transparent;
     color: white;
-    border:none;
-    border-bottom:1px solid white;
+    border: none;
+    border-bottom: 1px solid white;
 }
+
 .regform .form-group textarea {
     background: transparent;
     color: white;
     border: none;
     border-bottom: 1px solid white;
 }
-.regform .form-group button{
-    background-color: #03a9f4;
 
+.regform .form-group button {
+    background-color: #03a9f4;
 }
-.regform #title img{
+
+.regform #title img {
     width: 150px;
 }
-.btn{
+
+.btn {
     color: #03a9f4;
+}
+
+.regform form .errors {
+    color: red;
 }
