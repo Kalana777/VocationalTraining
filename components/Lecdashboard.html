@@ -64,9 +64,10 @@
                     </div>
                     <div class="form-group">
                         <label for="from">From:</label>
-                        <input type="date" class="form-control" id="from" ng-model="from" placeholder="from" required>
+                        <input type="date" class="form-control" id="from" name="from" ng-model="from" placeholder="from" required max="2018-12-31" min="2018-07-11">
                         <label for="to">To:</label>
-                        <input type="date" class="form-control" id="to" ng-model="to" placeholder="to" required>
+                        <input type="date" class="form-control" id="to" name="to" ng-model="to" placeholder="to" required max="2018-12-31">
+
                     </div>
                     <fieldset class="form-group">
                         <label>Type of Leave</label>
@@ -117,3 +118,9 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    $("#from").on("change", function() {
+        var v = $(this).val();
+        $('#to').attr('min', v);
+    })
+</script>
