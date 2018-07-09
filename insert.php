@@ -10,12 +10,17 @@ if(count($data) > 0)
     $birthday = mysqli_real_escape_string($connect, $data->birthday);
     $address = mysqli_real_escape_string($connect, $data->address);
     $gender = mysqli_real_escape_string($connect, $data->gender);
-    $approval="unapproved";
-    $query = "INSERT INTO registration(full_name, name, email, mobile, birthday, address, gender, approval) VALUES ('$full_name', '$name' ,'$email', '$mobile_num', '$birthday', '$address', '$gender', '$approval')";
+
+    $maths = mysqli_real_escape_string($connect, $data->maths);
+    $science = mysqli_real_escape_string($connect, $data->science);
+    $english = mysqli_real_escape_string($connect, $data->english);
+    $query = "INSERT INTO registration(full_name, name, email, mobile, birthday, address, gender, maths, science, english) VALUES ('$full_name', '$name' ,'$email', '$mobile_num', '$birthday', '$address', '$gender', '$maths', '$science', '$english')";
+
+   
 
     if(mysqli_query($connect, $query))
     {
-        echo "DATA INSERTED...";
+        echo "<script>alert('Data inserted');</script>";
     }
     else
     {

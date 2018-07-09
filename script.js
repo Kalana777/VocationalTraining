@@ -1,4 +1,4 @@
-var app = angular.module('main', ['ngRoute', 'ui.bootstrap']);
+var app = angular.module('main', ['ngMessages', 'ngRoute', 'ui.bootstrap']);
 
 app.config(function($routeProvider) {
     $routeProvider.when('/', {
@@ -259,11 +259,25 @@ app.controller('regCtrl', function($scope, $http) {
                 'mobile': $scope.mobilenum,
                 'birthday': $scope.date_of_birth,
                 'address': $scope.address,
-                'gender': $scope.gender
+                'gender': $scope.gender,
+                'maths': $scope.maths,
+                'science': $scope.science,
+                'english': $scope.English,
+
             }
         )
-
+        alert("Successfully Inserted!")
+        $scope.reload();
     };
+    $scope.reload = function() {
+        $scope.fullname = null,
+            $scope.name = null,
+            $scope.email = null,
+            $scope.mobilenum = null,
+            $scope.date_of_birth = null,
+            $scope.address = null,
+            $scope.gender = null
+    }
 
 });
 app.controller('courseCtrl', function($scope, user) {
