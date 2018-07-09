@@ -25,12 +25,15 @@
  
  <?php
                 $course_id=$_GET['courseId'];
-                echo "<h2><b>Add Course Material : $course_id</b></h2><hr>";
+                echo "<div class=\"input-group container\"><h2><b>Add Course Material : $course_id</b></h2><hr>";
+                if(isset($_SESSION['alert'])){
+                echo $_SESSION['alert'];}
                 echo " <br> <form  method=\"POST\" action=\"includes/uploadCourseMaterial.inc.php?courseId=$course_id\" enctype=\"multipart/form-data\"><br>
-                  <input type=\"file\" name=\"file\"><br>
+                  <input type=\"file\" name=\"file\" class=\"btn btn-primary\"><br>
                   <div class=\"clearfix\">
-                  <button type=\"submit\" name=\"submit\" class=\"signupbtn\">upload</button>
+                  <button type=\"submit\" name=\"submit\" class=\"signupbtn btn btn-primary\">upload</button><br><br>
                   </div>
+                  <button type=\"submit\" name=\"back\" class=\"signupbtn btn btn-success\">Back to my modules</button></div>
                 </form>";
             
                 ?>

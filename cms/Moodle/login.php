@@ -72,7 +72,7 @@ if (isset($_POST['login'])) {
 
      
     if($role=='Admin'){
-        header("Location: admin/index.php");
+        header("Location: login.php?InvalidPassword");
     }
 
     else{
@@ -135,10 +135,10 @@ if (isset($_POST['login'])) {
                                   "4">Password</font></label>
                                  <input type='password' name='password' class='form-control title' value='' > </div>  
 
-                               
+                              
 
                               <div class="form-group">
-                              <input type="submit" name="login" value="  Login  "  class="button1">
+                              <input type="submit"  name="login" value="  Login  "  class="button1">
                               </div>
 
                              

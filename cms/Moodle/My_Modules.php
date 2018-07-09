@@ -22,8 +22,9 @@
 
 
 <!-- ---------------------------content here ---------------------------------->
+<?php  unset($_SESSION['alert1']);     ?>
 <?php
-                            
+                    
                             $db = mysqli_connect('localhost', 'root', '', 'vocational training institute');
 
                               $user=$_SESSION['username'];

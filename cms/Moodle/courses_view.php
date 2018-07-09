@@ -24,7 +24,7 @@
 <!-- ---------------------------content here ---------------------------------->
 <?php 
                   $id=$_GET['id'];
-                  
+                  unset($_SESSION['alert1']);
                   $uname=$_SESSION['username'];
 
                   include('includes/courses_view.inc.php');                   

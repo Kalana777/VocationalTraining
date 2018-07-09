@@ -25,6 +25,7 @@
   <?php 
                   $cid=$_GET['courseId'];
                   echo "<h1><b>Edit the module : $cid <b></h1><hr>";
+                  unset($_SESSION['alert']);
                   ?>
  <ul class="list1">
                       <?php 

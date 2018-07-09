@@ -23,7 +23,10 @@ if(isset($_POST['submit'])){
 	$file=base64_encode($file);
 
 	
-	
+	if($fileName==""){
+		header("Location: ../assignment_view.php?assignId=$assignId&courseId=$course_id");
+		$_SESSION['alert1']="('_')Please choose a file";
+	}else{
 	if($fileError===0){
 		if($fileSize<=30000000){
 			$fileNameNew=uniqid('',true).".".$fileActualExt;
@@ -43,5 +46,5 @@ if(isset($_POST['submit'])){
 
 	}else{
 		header("Location: ../courses_view.php?id=$course_id");
-	}
+	}}
 }
