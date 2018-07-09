@@ -23,10 +23,10 @@ if (isset($_POST['login'])) {
 
     $username=mysqli_real_escape_string($connection_d, $username);
     $password=mysqli_real_escape_string($connection_d, $password);
-
+    $psw=md5($password);
 
     
-    $query="SELECT * FROM user_tbl WHERE Username='$username' AND Password='$password'";
+    $query="SELECT * FROM users WHERE username='$username' AND password='$psw'";
 
    /* if($role=='Student'){
      
@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
       else{
         $message="logged in!";
         while($row=mysqli_fetch_assoc($validate)) {
-          $role=$row['Type'];
+          $role=$row['type'];
           
        }
 
@@ -72,7 +72,7 @@ if (isset($_POST['login'])) {
 
      
     if($role=='Admin'){
-        header("Location: admin/index.php");
+        header("Location: login.php?InvalidPassword");
     }
 
     else{
@@ -135,10 +135,10 @@ if (isset($_POST['login'])) {
                                   "4">Password</font></label>
                                  <input type='password' name='password' class='form-control title' value='' > </div>  
 
-                               
+                              
 
                               <div class="form-group">
-                              <input type="submit" name="login" value="  Login  "  class="button1">
+                              <input type="submit"  name="login" value="  Login  "  class="button1">
                               </div>
 
                              

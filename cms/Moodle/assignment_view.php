@@ -22,6 +22,10 @@
 
 
 <!-- ---------------------------content here ---------------------------------->
+   <?php if(isset($_SESSION['alert1'])){
+    $y=$_SESSION['alert1'];
+    echo "$y";
+    }?>
     <h2><b>Submission View</b></h2><hr>
  <?php
                 $myusername = $_SESSION['username'];
@@ -30,6 +34,7 @@
                 $course_id=$_GET['courseId'];
                 if($userType=='student'){
                   include('includes/assignment_view.inc.php');
+
                 
                 }
               else if($userType=='lecturer'){

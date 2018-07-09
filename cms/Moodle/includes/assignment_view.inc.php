@@ -32,7 +32,7 @@ if($resultCheck==0){
 	  <div class=\"container\">
       <input type=\"file\" name=\"file\">
       <div class=\"clearfix\"> <br>
-      <button type=\"submit\" name=\"submit\" class=\"signupbtn\">upload</button>
+      <button type=\"submit\" name=\"submit\" class=\"signupbtn btn btn success\">upload</button>
       </div>
       </div>
     </form>";
@@ -71,7 +71,7 @@ else if($resultCheck>0){
 		<div class=\"container\">
 	  <input type=\"file\" name=\"file\">
 	  <div class=\"clearfix\"><br>
-	  <button type=\"submit\" name=\"submit\" class=\"signupbtn\">Edit submission</button>
+	  <button type=\"submit\" name=\"submit\" class=\"signupbtn btn btn-success\">Edit submission</button>
 	  </div>
 	  </div>
 	</form>";
@@ -83,6 +83,7 @@ else if($resultCheck>0){
 	        </tr>
 	        <tr><td>______________________</td><td>_____________________</td></table>";
 }
+
 }
 
 

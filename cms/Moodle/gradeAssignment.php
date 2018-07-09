@@ -33,23 +33,11 @@
                   <li><a href=\"uploads/$materialPath\"><h2>$student_id</h2></a></li><br><br>
                   </ul>
                  <b> Marks:</b> 
-
-                 <select name=\"marks\">
-                    <option value=\"\">Select...</option>
-                    <option value=\"1\">1</option>
-                    <option value=\"2\">2</option>
-                    <option value=\"3\">3</option>
-                    <option value=\"4\">4</option>
-                    <option value=\"5\">5</option>
-                    <option value=\"6\">6</option>
-                    <option value=\"7\">7</option>
-                    <option value=\"8\">8</option>
-                    <option value=\"9\">9</option>
-                    <option value=\"10\">10</option>
-                  </select><br>
+                 <input type=\"number\" name=\"marks\"  class=\"form-control\" style=\"width: 200px\" max=\"100\" min=\"0\" required>
+                 
 
                  <div class=\"clearfix\"><br>
-                  <button type=\"submit\" name=\"grade\" class=\"signupbtn\"><b><h4>Grade</button>
+                  <button type=\"submit\" name=\"grade\" class=\"signupbtn btn btn-success\"><b><h4>Grade</button>
                 </div>
                 </div>
                 </form>";

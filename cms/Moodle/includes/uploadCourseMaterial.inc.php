@@ -14,22 +14,31 @@ if(isset($_POST['submit'])){
 
 	$lecturer_id=$_SESSION['username'];
 	$course_id=$_GET['courseId'];
-	
-	if($fileError===0){
-		if($fileSize<=9000000000000000000000000000000000000000000000000000000000000000000000000000){
-			$fileNameNew=uniqid('',true).".".$fileActualExt;
-			$fileDestination='../uploadsCourseMaterial/'.$fileNameNew;
-			move_uploaded_file($fileTmpName, $fileDestination);
-			$conn=mysqli_connect('localhost','root','','vocational training institute');
-			$sql1="INSERT INTO course_material(course_id,  lecturer_id, material_path, material_name) VALUES('$course_id','$lecturer_id','$fileNameNew','$fileName')";
-			$result=mysqli_query($conn,$sql1);
+	if($fileName==""){
+		header("Location: ../addCourseMaterial.php?courseId=$course_id");
+		$_SESSION['alert']="Please choose a file";
+	}else{
+		if($fileError===0){
+			if($fileSize<=9000000000000000000000000000000000000000000000000000000000000000000000000000){
+				$fileNameNew=uniqid('',true).".".$fileActualExt;
+				$fileDestination='../uploadsCourseMaterial/'.$fileNameNew;
+				move_uploaded_file($fileTmpName, $fileDestination);
+				$conn=mysqli_connect('localhost','root','','vocational training institute');
+				$sql1="INSERT INTO course_material(course_id,  lecturer_id, material_path, material_name) VALUES('$course_id','$lecturer_id','$fileNameNew','$fileName')";
+				$result=mysqli_query($conn,$sql1);
 
-			header("Location: ../courses_view.php?id=$course_id");
+				header("Location: ../courses_view.php?id=$course_id");
+			}else{
+				header("Location: ../addCourseMaterial.php?courseId=$course_id");
+			$_SESSION['alert']="File is too big";
+
+			}
 		}else{
-			header("Location: ../courses_view.php?id=$course_id");
-
-			//header("Location: ../courses_view.php?id=$course_id");
+			header("Location: ../addCourseMaterial.php?courseId=$course_id");
+			$_SESSION['alert']="There is an error in uploading";
 		}
-
 	}
+}
+if(isset($_POST['back'])){
+	header("Location: ../My_modules.php");
 }
